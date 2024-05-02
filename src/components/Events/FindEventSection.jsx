@@ -9,7 +9,7 @@ export default function FindEventSection() {
   const searchElement = useRef();
   const [searchTerm, setSearchTerm] = useState('');
 
-  const { data, isPending, error } = useQuery({
+  const { data, isPending, isError, error } = useQuery({
     queryKey: ["events", { search: searchTerm }],
     queryFn: () => fetchEvents(searchTerm),
   });
@@ -25,7 +25,7 @@ export default function FindEventSection() {
     content = <LoadingIndicator />;
   }
 
-  if (error) {
+  if (isError) {
     content = (
       <ErrorBlock
         title="An error occurred"
