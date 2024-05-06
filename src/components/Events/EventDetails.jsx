@@ -31,7 +31,7 @@ export default function EventDetails() {
         refetchType: "none",
       });
       navigate("/events");
-    },
+    },s
   });
 
   function handleStartDelete() {
