@@ -21,7 +21,8 @@ export default function EditEvent() {
   })
 
   function handleSubmit(formData) {
-    mutate({ id: params.id, event: formData })
+    mutate({ id: params.id, event: formData });
+    navigate('../')
   }
 
   function handleClose() {
