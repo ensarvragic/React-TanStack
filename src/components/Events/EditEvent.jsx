@@ -15,13 +15,14 @@ import ErrorBlock from "../UI/ErrorBlock.jsx";
 
 export default function EditEvent() {
   const navigate = useNavigate();
-  const { state } = useNavigate();
+  const { state } = useNavigation();
   const submit = useSubmit();
   const params = useParams();
 
   const { data, isError, error } = useQuery({
     queryKey: ["events", params.id],
     queryFn: ({ signal }) => fetchEvent({ signal, id: params.id }),
+    staleTime: 10000,
   });
 
   // const { mutate } = useMutation({  !!! zamenjeno action-om !!!
